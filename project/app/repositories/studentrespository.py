@@ -18,3 +18,14 @@ class StudentRepository:
             session.rollback()
             raise e
             
+    @staticmethod
+    def get_all_student(args:dict, session:scoped_session):
+        try:
+            student = session.query(Student).all()
+            return student
+        except Exception as e:
+            session.rollback()
+            raise e
+            
+            
+            

@@ -18,5 +18,12 @@ class StudentSchema(Schema):
 class postStudentSchema(StudentSchema):
     # student_id = fields.Int(required = True)
     pass
-    
+
+class GetStudentSchema(Schema):
+    # Fields for filtering or querying data can be optional
+    student_id = fields.Int(dump_only=True)
+    student_name = fields.String()
+    student_email = fields.Email()
+    student_phone = fields.String()
+    room_id = fields.Integer()
     

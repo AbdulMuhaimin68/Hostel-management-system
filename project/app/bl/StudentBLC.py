@@ -13,3 +13,13 @@ class StudentBLC:
         except Exception as e:
             session.rollback()
             raise e
+        
+    @staticmethod
+    def get_all_students(args : dict):
+        session = StudentRepository.get_session()
+        
+        try:
+            result = StudentRepository.get_all_student(args,session)
+            return result
+        except Exception as e:
+            raise e
