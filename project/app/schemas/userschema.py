@@ -13,7 +13,7 @@ class UserSchema(Schema):
     
     @validates('role')
     def validate_role(self, value):
-        if value not in ['admin', 'user', 'distributor']:
+        if value not in ['admin', 'student', 'employee']:
             raise ValidationError('Invalid role. Roles must be admin, student, or employee.')
     
     

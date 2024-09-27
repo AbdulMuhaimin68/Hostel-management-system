@@ -17,8 +17,6 @@ bp = Blueprint("user", __name__)
 @use_args(UserSchema(), location="json")
 def register_user(args):
     try:
-        if current_user.role != "admin":
-            return "admin privileger required" 
         res =UserBLC.add_user(args)
         return jsonify({"message" : "user added successfully", "result" : res}), 201
     except Exception as e:
