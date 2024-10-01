@@ -18,3 +18,12 @@ class FeeRepository:
             session.rollback()
             raise e
         
+    @staticmethod
+    def get_fee_by_id(session:scoped_session, id:None):
+       res = session.query(Fee).filter(Fee.fee_id==id).first()
+       return res
+            
+    @staticmethod
+    def update_fees_data(fee,args:dict):
+        fee.amount = args.get("amount", fee.amount)
+        return fee

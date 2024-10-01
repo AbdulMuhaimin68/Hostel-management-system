@@ -12,3 +12,7 @@ class FurnitureSchema(Schema):
     
 class PostFurniture(Furniture):
     pass
+
+class GetFurnitureSchema(Schema):
+    furniture_id = fields.Integer(required = True)
+    

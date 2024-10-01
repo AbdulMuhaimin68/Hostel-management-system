@@ -14,4 +14,12 @@ class FeeSchema(Schema):
 class PostFee(FeeSchema):
     # fee_id = fields.Int(required = True)
     pass
+class GetFeeSchema(Schema):
+    fee_id = fields.Int(required = True)
+    
+class PutFeeSchema(Schema):
+    fee_id = fields.Int(required = True)
+    amount = fields.Int(required = True)
+    student_id = fields.Int(required = True)
+    
     
