@@ -25,4 +25,26 @@ class HostelBLC:
             return result
         else:
             raise Exception("ID not found!")
+        
+    @staticmethod
+    def delete_hostel_by_id(args: dict):
+        session = HostelRepository.get_session()
+        try:
+            id = args.get("hostel_id")  # Assuming 'id' comes from args
+            result = HostelRepository.get_hostel_by_id(session, id)
+
+            if result is None:
+                # Return None when hostel is not found
+                return None
+            
+            # Delete the hostel if found
+            session.delete(result)
+            session.commit()
+            return result
+
+        except Exception as e:
+            session.rollback()  # Ensure rollback on failure
+            raise e
+
+            
             

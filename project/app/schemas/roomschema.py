@@ -19,3 +19,10 @@ class RoomSchema(Schema):
     
 class PostRoomSchema(RoomSchema):
     pass
+class getAllRooms(Schema):
+    # Make all fields optional for a GET request
+    hostel_id = fields.Integer(required=False)  # If you want to filter by hostel_id
+    room_id = fields.Integer(required=False)
+    room_type = fields.String(required=False)
+    room_capacity = fields.Integer(required=False)
+

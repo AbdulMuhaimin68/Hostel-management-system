@@ -46,4 +46,22 @@ def get_employees_by_id(args):
     except Exception as e:
         return jsonify({"error!" : str(e)}), HTTPStatus.UNPROCESSABLE_ENTITY
 
+@bp.route("/hostel", methods=["DELETE"])
+@use_args(GetHostelSchemaById(), location="json")
+def delete_hostel_by_id(args):
+    try:
+        res = HostelBLC.delete_hostel_by_id(args)
+        
+        if res is None:
+            # Return an appropriate message if the hostel wasn't found
+            return jsonify({"error": "Hostel not found"}), 404
+        
+        # If deletion was successful, serialize and return the deleted object
+        schema = HostelSchema()
+        result = schema.dump(res)
+        return jsonify({"message": "Data deleted successfully!", "data": result}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
     

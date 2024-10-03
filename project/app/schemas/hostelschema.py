@@ -15,9 +15,8 @@ class HostelSchema(Schema):
     
 class PostHostelSchema(HostelSchema):
     pass
-class GetHostelSchemaById(HostelSchema):
+class GetHostelSchemaById(Schema):
     hostel_id = fields.Int(required = True)
-    pass
 class UpdateHostelSchema(HostelSchema):
     pass
 class DeleteHostelSchema(HostelSchema):
