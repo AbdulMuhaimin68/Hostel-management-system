@@ -33,7 +33,7 @@ class FurnitureRepository:
         furniture.condition = args.get("condition", furniture.condition)
         
         
-    @staticmethod
+
     @staticmethod
     def delete_furniture(args: dict, session):
         try:

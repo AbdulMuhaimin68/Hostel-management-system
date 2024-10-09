@@ -27,3 +27,12 @@ class GetStudentSchema(Schema):
     student_phone = fields.String()
     room_id = fields.Integer()
     
+class Update_by_id(Schema):
+    student_id = fields.Integer(required = True)
+    student_name = fields.String()
+    student_email = fields.Email()
+    student_phone = fields.String()
+    room_id = fields.Integer()
+    
+class GetStudentById(Schema):
+    student_id = fields.Integer(required = True)
